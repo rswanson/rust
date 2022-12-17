@@ -8,7 +8,7 @@ fn main() {
 
     let y = {
         let x = 3;
-        x + 1
+        plus_one(x)
     };
 
     print_number(y,'y')
@@ -17,6 +17,11 @@ fn main() {
 fn five() -> i32 {
     5
 }
+
+fn plus_one(x: i32) -> i32 {
+    x+1
+}
+
 fn print_number(x: i32, var_name: char) {
     println!("The value of {var_name} is: {x}");
 }

@@ -5,17 +5,34 @@ struct User {
     sign_in_count: u64,
 }
 
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
 fn main() {
-    let mut user1 = User {
-        email: String::from("some@test.com"),
-        username: String::from("swanny"),
-        active: true,
-        sign_in_count: 1,
-    };
+    let mut user1 = build_user(String::from("some@test.com"), String::from("swanny"));
     debug_print(&user1);
     user1.email = String::from("another@example.com");
     debug_print(&user1);
+    let user2 = User {
+        email: String::from("third@example.com"),
+        ..user1
+    };
+    debug_print(&user2);
 
+    let black = Color(0, 0, 0);
+    let origin = Point(0,0,0);
+    println!("Color: {}, {}, {}", black.0, black.1, black.2);
+    println!("Origin: {}, {}, {}", origin.0, origin.1, origin.2);
+    
+}
+
+fn build_user(email: String, username: String) -> User {
+    User {
+        email,
+        username,
+        active: true,
+        sign_in_count: 1,
+    }
 }
 
 fn debug_print(user1: &User) {

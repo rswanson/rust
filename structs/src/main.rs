@@ -6,16 +6,25 @@ struct User {
 }
 
 fn main() {
-    let mut user1 = User {
-        email: String::from("some@test.com"),
-        username: String::from("swanny"),
-        active: true,
-        sign_in_count: 1,
-    };
+    let mut user1 = build_user(String::from("some@test.com"), String::from("swanny"));
     debug_print(&user1);
     user1.email = String::from("another@example.com");
     debug_print(&user1);
+    let user2 = User {
+        email: String::from("third@example.com"),
+        ..user1
+    };
+    debug_print(&user2);
+    
+}
 
+fn build_user(email: String, username: String) -> User {
+    User {
+        email,
+        username,
+        active: true,
+        sign_in_count: 1,
+    }
 }
 
 fn debug_print(user1: &User) {

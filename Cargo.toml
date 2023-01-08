@@ -1,0 +1,22 @@
+[workspace]
+
+members = [
+    "adder",
+    "aggregator",
+    "branches",
+    "boxes",
+    "enooms",
+    "error_handling",
+    "functions",
+    "generics",
+    "guessing_game",
+    "hash_map",
+    "hello_cargo",
+    "ownership",
+    "rectangles",
+    "restaurant",
+    "strings",
+    "structs",
+    "variables",
+    "vectors",
+]

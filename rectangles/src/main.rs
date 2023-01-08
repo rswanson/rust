@@ -42,3 +42,36 @@ fn debug_print(rectangle: &Rectangle) {
     println!("{:#?}", rectangle);
 
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn larger_can_hold_smaller() {
+        let larger = Rectangle {
+            width: 8,
+            height: 7,
+        };
+        let smaller = Rectangle {
+            width: 5,
+            height: 4,
+        };
+
+        assert!(larger.can_hold(&smaller));
+    }
+    #[test]
+    fn smaller_cannot_hold_larger() {
+        let larger = Rectangle {
+            width: 8,
+            height: 7,
+        };
+        let smaller = Rectangle {
+            width: 5,
+            height: 4,
+        };
+
+        assert!(!smaller.can_hold(&larger));
+
+    }
+}
